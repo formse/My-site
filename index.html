@@ -13,107 +13,104 @@
     flex-direction:column;
     font-family:Arial;
     background:#f2f2f2;
+    padding:40px 0;
 ">
 
-    <!-- LOGIN BOX -->
+    <!-- LOGIN FORM -->
     <div style="
         background:white;
-        padding:40px;
+        width:450px;
+        padding:60px 40px;
         border-radius:15px;
         box-shadow:0 0 20px rgba(0,0,0,0.15);
-        width:500px;
+        text-align:center;
     ">
 
         <!-- TITLE -->
         <h1 style="
-            text-align:center;
-            font-size:40px;
-            margin-bottom:30px;
+            font-size:42px;
+            margin-bottom:50px;
         ">
             Sign In to Get Started
         </h1>
 
-        <form>
+        <!-- EMAIL -->
+        <label style="
+            display:block;
+            font-size:18px;
+            margin-bottom:10px;
+        ">
+            Email Address
+        </label>
 
-            <!-- EMAIL -->
-            <label style="
+        <input type="email"
+            style="
+                width:320px;
+                padding:14px;
                 font-size:16px;
-                font-weight:bold;
+                border:1px solid #ccc;
+                border-radius:6px;
+                margin-bottom:35px;
             ">
-                Email Address
-            </label><br>
 
-            <input type="email"
-                style="
-                    width:300px;
-                    padding:12px;
-                    margin-top:8px;
-                    margin-bottom:20px;
-                    font-size:16px;
-                    border:1px solid #ccc;
-                    border-radius:6px;
-                ">
+        <!-- PASSWORD -->
+        <label style="
+            display:block;
+            font-size:18px;
+            margin-bottom:10px;
+        ">
+            Password
+        </label>
 
-            <br>
-
-            <!-- PASSWORD -->
-            <label style="
+        <input type="password"
+            style="
+                width:320px;
+                padding:14px;
                 font-size:16px;
-                font-weight:bold;
+                border:1px solid #ccc;
+                border-radius:6px;
+                margin-bottom:25px;
             ">
-                Password
-            </label><br>
 
-            <input type="password"
-                style="
-                    width:300px;
-                    padding:12px;
-                    margin-top:8px;
-                    margin-bottom:15px;
-                    font-size:16px;
-                    border:1px solid #ccc;
-                    border-radius:6px;
-                ">
+        <!-- FORGOT PASSWORD -->
+        <div style="margin-bottom:30px;">
 
-            <br>
-
-            <!-- FORGOT PASSWORD -->
             <a href="https://spectrum.net"
                style="
                     color:blue;
-                    font-size:15px;
+                    font-size:16px;
                     text-decoration:none;
                ">
                Forget Your Password?
             </a>
 
-            <br><br>
+        </div>
 
-            <!-- SIGN IN BUTTON -->
-            <a href="https://spectrum.net">
-                <button type="button" style="
-                    width:300px;
-                    padding:14px;
-                    background:blue;
-                    color:white;
-                    border:none;
-                    border-radius:8px;
-                    font-size:18px;
-                    cursor:pointer;
-                ">
-                    Sign In
-                </button>
-            </a>
+        <!-- SIGN IN BUTTON -->
+        <a href="https://spectrum.net">
 
-        </form>
+            <button type="button" style="
+                width:320px;
+                padding:15px;
+                background:blue;
+                color:white;
+                border:none;
+                border-radius:8px;
+                font-size:20px;
+                cursor:pointer;
+            ">
+                Sign In
+            </button>
+
+        </a>
 
     </div>
 
-    <!-- IMAGE -->
+    <!-- IMAGE UNDER FORM -->
     <img src="spect.png"
          style="
-            width:500px;
-            margin-top:25px;
+            width:450px;
+            margin-top:30px;
             border-radius:12px;
          ">
 
